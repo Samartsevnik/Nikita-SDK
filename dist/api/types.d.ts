@@ -13,8 +13,8 @@ export interface IBook {
 export interface ICharacter {
     value: string;
 }
-export interface requestOptions {
-    limit?: string;
+export interface RequestOptions {
+    limit?: number;
     page?: number;
     offset?: number;
 }

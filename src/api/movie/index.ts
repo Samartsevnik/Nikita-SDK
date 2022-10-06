@@ -5,7 +5,7 @@ import {IMovie, IQuote, RequestOptions} from '../types';
 
 export class Movie extends Base {
 
-  async getMovies(params: RequestOptions) {
+  async getMovies(params = {} as RequestOptions) {
     if (!params.limit) params.limit = DEFAULT_LIMIT;
     return this.axiosV1.get<Array<IMovie>>(URLS.MOVIE, {params: params});
   }

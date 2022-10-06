@@ -4,7 +4,7 @@ import {IBook, IChapter, RequestOptions} from '../types';
 
 export class Book extends Base {
 
-  async getBooks(params: RequestOptions) {
+  async getBooks(params = {} as RequestOptions) {
     if (!params.limit) params.limit = DEFAULT_LIMIT;
     return this.axiosV1.get<Array<IBook>>(URLS.BOOK, {params: params});
   }

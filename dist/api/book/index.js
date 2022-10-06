@@ -13,9 +13,11 @@ exports.Book = void 0;
 const base_1 = require("../../base");
 const constants_1 = require("../constants");
 class Book extends base_1.Base {
-    getBooks() {
+    getBooks(params = {}) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.axiosV1.get(constants_1.URLS.BOOK);
+            if (!params.limit)
+                params.limit = constants_1.DEFAULT_LIMIT;
+            return this.axiosV1.get(constants_1.URLS.BOOK, { params: params });
         });
     }
     getBook(id) {

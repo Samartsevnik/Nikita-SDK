@@ -5,7 +5,7 @@ import {IChapter, RequestOptions} from '../types';
 
 export class Chapter extends Base {
 
-  async getChapters(params: RequestOptions) {
+  async getChapters(params = {} as RequestOptions) {
     if (!params.limit) params.limit = DEFAULT_LIMIT;
     return this.axiosV1.get<Array<IChapter>>(URLS.CHAPTER, {params: params});
   }

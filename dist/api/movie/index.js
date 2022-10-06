@@ -13,9 +13,11 @@ exports.Movie = void 0;
 const base_1 = require("../../base");
 const constants_1 = require("../constants");
 class Movie extends base_1.Base {
-    getMovies() {
+    getMovies(params = {}) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.axiosV1.get(constants_1.URLS.MOVIE);
+            if (!params.limit)
+                params.limit = constants_1.DEFAULT_LIMIT;
+            return this.axiosV1.get(constants_1.URLS.MOVIE, { params: params });
         });
     }
     getMovie(id) {

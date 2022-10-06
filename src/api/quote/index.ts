@@ -5,7 +5,7 @@ import {IQuote, RequestOptions} from '../types';
 
 export class Quote extends Base {
 
-  async getQuotes(params: RequestOptions) {
+  async getQuotes(params = {} as RequestOptions) {
     if (!params.limit) params.limit = DEFAULT_LIMIT;
     return this.axiosV1.get<Array<IQuote>>(URLS.QUOTE, {params: params});
   }

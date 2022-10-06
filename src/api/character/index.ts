@@ -5,7 +5,7 @@ import {ICharacter, IQuote, RequestOptions} from '../types';
 
 export class Character extends Base {
 
-  async getCharacters(params: RequestOptions) {
+  async getCharacters(params = {} as RequestOptions) {
     if (!params.limit) params.limit = DEFAULT_LIMIT;
     return this.axiosV1.get<Array<ICharacter>>(URLS.CHARACTER, {params: params});
   }

@@ -5,3 +5,4 @@ export declare const URLS: {
     MOVIE: string;
     QUOTE: string;
 };
+export declare const DEFAULT_LIMIT = 10;
